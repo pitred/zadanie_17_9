@@ -20,6 +20,7 @@
     "event": "^1.0.0",
     "fs": "0.0.1-security",
     "http": "0.0.0",
+    "nodemon": "^1.19.0",
     "stat-mode": "^0.3.0"
   }
 }
