@@ -5,12 +5,13 @@ var handlers = require('./handlers');
 
 function start() {
     function onRequest(request, response) {
-        console.log('Query received.'.green);
-        console.log('Query ' + request.url + ' received.');
+        console.log("Odebrano zapytanie.".green);
+        console.log("Zapytanie " + request.url + " odebrane.");
 
         response.writeHead(200, {
-            'Content-Type': 'text/plain; charset=utf-8'
+            "Content-Type": "text/plain; charset=utf-8"
         });
+
         switch (request.url) {
             case '/':
             case '/start':
@@ -19,11 +20,17 @@ function start() {
             case '/upload':
                 handlers.upload(request, response);
                 break;
+            case '/show':
+                handlers.show(request, response);
+                break;
             default:
                 handlers.error(request, response);
         }
     }
+
     http.createServer(onRequest).listen(9000);
-    console.log('Server on!'.green);
+
+    console.log("Uruchomiono serwer!".green);
 }
+
 exports.start = start;
